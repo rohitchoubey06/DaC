@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Excel or CSV File</title>
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+</head>
+<body>
+    <h1 class="centered-text">Welcome to DaC</h1>
+    <h2 class="centered-text">Upload Excel or CSV File</h2>
+    <form action="/download/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br> <br> <br>
+        <div class="file-upload">
+            <input class="centered-input" type="file" name="file" accept=".xls,.xlsx,.csv" required>
+            <button class="input-button" type="submit">Download Clean Data</button>
+        </div>
+    </form>
+</body>
+</html>

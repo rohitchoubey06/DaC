@@ -1,0 +1,42 @@
+body {
+    background-color: #2F4F4F;
+}
+
+.centered-text{
+    text-align:center;
+    color:Aquamarine;
+}
+
+.file-upload {
+    text-align: center;
+}
+
+.centered-input {
+    display: inline-block; /* Ensure input takes up only necessary space */
+    text-align: center; /* Center-align the input */
+    background-color: #007bff; /* Change background color to blue */
+    color: #ffffff; /* Change text color to white */
+    padding: 10px 20px; /* Add padding for better appearance */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.centered-input:hover {
+    background-color: #0056b3; /* Darken background color on hover */
+}
+
+.input-button{
+    display: inline-block; /* Ensure input takes up only necessary space */
+    text-align: center; /* Center-align the input */
+    background-color: #228B22; /* Change background color to blue */
+    color: #ffffff; /* Change text color to white */
+    padding: 10px 20px; /* Add padding for better appearance */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer;
+   }
+
+.input-button:hover{
+    background-color:#008000;
+}

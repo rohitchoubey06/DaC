@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Page</title>
+</head>
+<body>
+
+<button onclick="downloadFile()">Download File</button>
+
+<script>
+function downloadFile() {
+    // Create a new FormData object
+    var formData = new FormData();
+
+    // Append the file input element to the FormData object
+    formData.append('file', document.getElementById('fileInput').files[0]);
+
+    // Create a new XMLHttpRequest object
+    var xhr = new XMLHttpRequest();
+
+    // Open a POST request to the Django view URL
+    xhr.open('POST', '{% url 'download' %}', true);
+
+    // Set the responseType to 'blob' for downloading files
+    xhr.responseType = 'blob';
+
+    // Set the onload event handler
+    xhr.onload = function() {
+        // Check if the request was successful (status code 200)
+        if (this.status == 200) {
+            // Create a new Blob object from the response
+            var blob = new Blob([this.response], { type: 'application/octet-stream' });
+
+            // Create a temporary anchor element
+            var link = document.createElement('a');
+
+            // Set the href attribute to a URL created from the Blob object
+            link.href = window.URL.createObjectURL(blob);
+
+            // Set the download attribute to specify the filename
+            link.download = 'modified_data.csv';
+
+            // Simulate a click on the anchor element to trigger the file download
+            link.click();
+        }
+    };
+
+    // Send the FormData object with the POST request
+    xhr.send(formData);
+}
+</script>
+
+</body>
+</html>

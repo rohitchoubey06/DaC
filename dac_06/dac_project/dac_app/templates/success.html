@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Success</title>
+</head>
+<body>
+    <h1>File Uploaded Successfully</h1>
+
+    <!-- Display the URL of the uploaded file -->
+    <p>Uploaded File URL: <a href="{{ file_url }}">{{ file_url }}</a></p>
+<!--    <a href="{% url 'download/' %}">Download</a>-->
+<!--    <form method="post" action="download/">-->
+
+    </form>
+    <!-- Display DataFrame content if available -->
+    {% if df %}
+    <h2>Uploaded DataFrame:</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                {% for column in df.columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in df.iterrows %}
+            <tr>
+                {% for value in row %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
